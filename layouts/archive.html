@@ -9,16 +9,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Pure Evil Javascript</title>
+    <title>{{ title }}</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="assets/css/clean-blog.min.css" rel="stylesheet">
+    <link href="../../assets/css/clean-blog.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -43,9 +43,20 @@
                     Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="index.html">
-                    <img src="assets/img/pejslogo2.svg" width="93px" height="93px" />
+                    <img src="../../assets/img/pejslogo2.svg" width="93px" height="93px" />
                 </a>
             </div>
+
+            <ul class='latest-post'>
+                {{#each pagination.files}}
+                <li>
+                    <h2>
+                        sds <a href='{{this.path}}/' title='{{this.title}}'>{{this.title}}</a>
+                    </h2>
+                </li>
+                {{/each}}
+            </ul>
+
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -71,12 +82,14 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('assets/img/home-bg.jpg')">
+    <header class="intro-header" style="background-image: url('../../assets/img/post-bg.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h2>Pure Evil Javascript</h2>
+                    <div class="post-heading">
+                        <h1>{{title}}</h1>
+                        <h2 class="subheading">{{subtitle}}</h2>
+                        <span class="meta">Posted on {{date}}</span>
                     </div>
                 </div>
             </div>
@@ -88,21 +101,23 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-                {{#each archive}}
-                     {{#each data}}
-                     <div class="post-preview">
-                         <a href="{{ this.url }}">
-                             <h2 class="post-title">
-                                 {{this.title}}
-                             </h2>
-                             <h3 class="post-subtitle">
-                                 {{this.subtitle}}
-                             </h3>
-                         </a>
-                         <p class="post-meta">Posted on {{this.date}}</p>
-                     </div>
-                     {{/each}}
+                <!--{{#each archive}}
+                {{#each data}}
+                <div class="post-preview">
+                    <a href="{{ this.url }}">
+                        <h2 class="post-title">
+                            {{this.title}}
+                        </h2>
+                        <h3 class="post-subtitle">
+                            {{this.subtitle}}
+                        </h3>
+                    </a>
+                    <p class="post-meta">Posted on {{this.date}}</p>
+                </div>
                 {{/each}}
+                {{/each}}-->
+
+
                 <!--<div class="post-preview">
                     <a href="post.html">
                         <h2 class="post-title">
@@ -198,17 +213,17 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../../assets/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="assets/js/jqBootstrapValidation.js"></script>
-    <script src="assets/js/contact_me.js"></script>
+    <script src="../../assets/js/jqBootstrapValidation.js"></script>
+    <script src="../../assets/js/contact_me.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="assets/js/clean-blog.min.js"></script>
+    <script src="../../assets/js/clean-blog.min.js"></script>
 
 </body>
 

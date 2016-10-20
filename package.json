@@ -31,6 +31,13 @@
     "start": "node index"
   },
   "devDependencies": {
-    "gulp-metalsmith": "^1.0.0"
+    "gulp-clean": "^0.3.2",
+    "gulp-metalsmith": "^1.0.0",
+    "metalsmith-archive": "^0.1.1",
+    "metalsmith-collections": "^0.7.0",
+    "metalsmith-date-formatter": "^1.0.2",
+    "metalsmith-pager": "^1.2.1",
+    "metalsmith-pagination": "^1.4.0",
+    "metalsmith-permalinks": "^0.5.0"
   }
 }

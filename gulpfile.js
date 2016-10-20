@@ -7,12 +7,17 @@ var rename = require("gulp-rename");
 var uglify = require('gulp-uglify');
 var clean = require('gulp-clean');
 
-var metalsmith = require('gulp-metalsmith');
-var markdown    = require('metalsmith-markdown');
-var layouts     = require('metalsmith-layouts');
-var permalinks  = require('metalsmith-permalinks');
-var assets      = require('metalsmith-assets');
-
+var metalsmith      = require('gulp-metalsmith');
+var markdown        = require('metalsmith-markdown');
+var layouts         = require('metalsmith-layouts');
+var permalinks      = require('metalsmith-permalinks');
+var assets          = require('metalsmith-assets');
+//var archive         = require('metalsmith-archive');
+var collections     = require('metalsmith-collections');
+var permalinks      = require('metalsmith-permalinks');
+//var pagination      = require('metalsmith-pagination');
+var paginate          = require('metalsmith-pager');
+var dateFormatter   = require('metalsmith-date-formatter');
 var pkg = require('./package.json');
 
 // Set the banner content
@@ -100,8 +105,66 @@ gulp.task('metalsmith', function() {
                 //clean(false),
                 //source(dir.source),
                 //destination(dir.dest),
+                dateFormatter({
+                    date: [
+                        {
+                            key: 'date',
+                            format: 'MM DD YYYY'
+                        }
+                    ]
+                }),
+                //archive(),
+                collections({
+                    posts: {
+                        pattern: 'posts/*.md'
+                    }
+                }),
                 markdown(),
-                permalinks(),
+                permalinks({
+                    pattern: 'posts/:title'
+                }),
+                paginate({
+                    // name of the collection the files belong
+                    collection: 'posts',
+
+                    // maximum number of element that could be displayed
+                    // in the same page.
+                    elementsPerPage: 5,
+
+                    // pattern for the path at which the page trunk should
+                    // be available
+                    pagePattern: 'page/:PAGE/index.html',
+
+                    // format in which the page number should be displayed
+                    // in the page navigation bar
+                    pageLabel: '[ :PAGE ]',
+
+                    // name of the file that will be the homepage.
+                    // this file will have the same info of the page "page/1/index.html".
+                    index: 'pagerx.html',
+
+                    // path where the pagination template is located.
+                    // it should be relative to the path configured as "source" for metalsmith.
+                    paginationTemplatePath: '__partials/pagination.html',
+
+                    // name of the layout that should be used to create the page.
+                    layoutName: 'archive.html'
+
+                }),
+                /*pagination({
+                    'collections.articles': {
+                        perPage: 5,
+                        template: 'index.jade',
+                        first: 'index.html',
+                        path: 'page/:num/index.html',
+                        filter: function (page) {
+                            return !page.private
+                        },
+                        pageMetadata: {
+                            title: 'Archive'
+                        }
+                    }
+                }),*/
                 assets({
                     source: dir.assets,
                     destination: 'assets'

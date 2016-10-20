@@ -1,0 +1,26 @@
+
+<nav class='page-links'>
+  {{#each pages}}
+    {{#if @first}}
+      <a class='page page-first' href='/{{this.path}}' title='Go to the first page'>First</a>
+      {{#if ../pagination.prev}}
+        <a class='page page-prev' href='/{{../pagination.prev}}' title='Go to the previous page'><</a>
+      {{else}}
+        <span class='page page-prev page-prev-disabled'><</span>
+      {{/if}}
+    {{/if}}
+    {{#ifEqual this.index ../pagination.current}}
+      <span class='page page-{{this.index}} page-current'>{{this.label}}</span>
+    {{else}}
+      <a class='page page-{{this.index}}' href='/{{this.path}}' title='Go to page {{this.index}}'>{{this.label}}</a>
+    {{/ifEqual}}
+    {{#if @last}}
+      {{#if ../pagination.next}}
+        <a class='page page-next' href='/{{../pagination.next}}' title='Go to the next page'>></a>
+      {{else}}
+        <span class='page page-next page-next-disabled'><</span>
+      {{/if}}
+      <a class='page page-latest' href='/{{this.path}}' title='Go to the latest page'>Latest</a>
+    {{/if}}
+  {{/each}}
+</nav>
