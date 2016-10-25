@@ -1,0 +1,31 @@
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                Menu <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="index.html">
+                <img src="{{baseUrl}}/assets/img/pejslogo2.svg" width="93px" height="93px" />
+            </a>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header homepage" style="background-image: url('{{baseUrl}}/assets/img/post-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Pure Evil Javascript</h1>
+                    <span class="subheading">Browser and server based development for the Devil</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

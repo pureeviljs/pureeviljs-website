@@ -73,6 +73,9 @@ hr.small {
 	.navbar-brand {
 		font-weight: 800;
 		height: 93px;
+		position: fixed;
+		top: 0;
+		box-shadow: 2px 2px 1px 1px rgba(0,0,0,0.35);
 		background: url('../../assets/img/texture-red.jpg');
 	}
 	.navbar-header {
@@ -209,7 +212,9 @@ hr.small {
 	}
 	.post-heading {
 		h1 {
+			color: #f2e5cc;
 			font-size: 35px;
+			text-shadow: -3px 0 #6f2d2e, 0 3px #6f2d2e;
 		}
 		.subheading,
 		.meta {
@@ -217,26 +222,16 @@ hr.small {
 			display: block;
 		}
 		.subheading {
-			.sans-serif-font;
-			font-size: 24px;
-			margin: 10px 0 30px;
-			font-weight: 600;
-		}
-		.meta {
 			.serif-font;
-			font-style: italic;
-			font-weight: 300;
-			font-size: 20px;
-			a {
-				color: white;
-			}
+			color: #f2e5cc;
+			text-shadow: -2px 0 #6f2d2e, 0 2px #6f2d2e;
+			font-size: 24px;
+			font-weight: 600;
+			padding: 7px;
 		}
 		@media only screen and (min-width: 768px) {
 			h1 {
 				font-size: 55px;
-			}
-			.subheading {
-				font-size: 30px;
 			}
 		}
 	}
@@ -312,6 +307,17 @@ hr.small {
 	border-bottom-left-radius: 5px;
 }
 
+.meta {
+	.serif-font;
+	color: #793132;
+	padding: 7px;
+	background-color: rgba(65, 56, 56, 0.6);
+	font-style: italic;
+	font-size: 20px;
+	a {
+		color: white;
+	}
+}
 footer {
 	padding: 50px 0 65px;
 	.list-inline {

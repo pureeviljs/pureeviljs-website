@@ -5,39 +5,28 @@
   "author": "Ben, Destroyer of Hello Worlds",
   "homepage": "pureeviljs.com",
   "dependencies": {
-    "glob-watcher": "^3.0.0",
-    "handlebars": "^4.0.5",
-    "metalsmith": "^2.1.0",
-    "metalsmith-assets": "^0.1.0",
-    "metalsmith-changed": "^2.0.0",
-    "metalsmith-layouts": "^1.4.1",
-    "metalsmith-livereload": "0.0.2",
-    "metalsmith-markdown": "^0.2.1",
-    "metalsmith-permalinks": "^0.5.0",
-    "metalsmith-watch": "^1.0.3",
-    "node-static": "^0.7.8",
-    "open": "0.0.5",
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.6.3",
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^2.0.10",
-    "gulp-header": "^1.8.7",
-    "gulp-less": "^3.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.5.4",
-    "jquery": "^1.11.3"
-  },
-  "scripts": {
-    "start": "node index"
+    "jquery": "^3.1.1"
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
-    "gulp-metalsmith": "^1.0.0",
-    "metalsmith-archive": "^0.1.1",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-less": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "handlebars": "^4.0.5",
+    "metalsmith": "^2.2.0",
+    "metalsmith-assets": "^0.1.0",
     "metalsmith-collections": "^0.7.0",
-    "metalsmith-date-formatter": "^1.0.2",
-    "metalsmith-pager": "^1.2.1",
+    "metalsmith-drafts": "0.0.1",
+    "metalsmith-gist": "^0.3.0",
+    "metalsmith-markdown": "^0.2.1",
     "metalsmith-pagination": "^1.4.0",
-    "metalsmith-permalinks": "^0.5.0"
+    "metalsmith-permalinks": "^0.5.0",
+    "metalsmith-tags": "^2.0.0",
+    "metalsmith-templates": "^0.7.0",
+    "moment": "^2.15.1"
   }
 }
