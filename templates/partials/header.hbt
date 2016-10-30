@@ -17,6 +17,9 @@
     <!-- Theme CSS -->
     <link href="{{baseUrl}}/assets/css/clean-blog.min.css" rel="stylesheet">
 
+    <!-- Highlight CSS -->
+    <link rel="stylesheet" href="{{baseUrl}}/assets/vendor/highlightjs/atelier-cave.dark.css">
+
     <!-- Custom Fonts -->
     <link href="{{baseUrl}}/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -28,7 +31,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
 
 <body>

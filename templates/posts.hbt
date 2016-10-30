@@ -1,7 +1,6 @@
 {{> header}}
 {{> postbanner}}
 
-
 <!-- Post Content -->
 <article>
     <div class="container">

@@ -6,8 +6,10 @@ var permalinks   = require('metalsmith-permalinks');
 var tags         = require('metalsmith-tags');
 var gist         = require('metalsmith-gist');
 var drafts       = require('metalsmith-drafts');
-var pagination   = require('metalsmith-pagination'); // <-- nova dependência
+var pagination   = require('metalsmith-pagination');
 var assets       = require('metalsmith-assets');
+var metallic     = require('metalsmith-metallic');
+var precompiler  = require('./metalsmith-helpers/markdown-precompiler');
 
 var fs           = require('fs');
 var Handlebars   = require('handlebars');
@@ -18,8 +20,9 @@ Handlebars.registerPartial({
     'header':       fs.readFileSync('./templates/partials/header.hbt').toString(),
     'footer':       fs.readFileSync('./templates/partials/footer.hbt').toString(),
     'banner':       fs.readFileSync('./templates/partials/banner.hbt').toString(),
-    'postbanner':   fs.readFileSync('./templates/partials/postbanner.hbt').toString()
+    'postbanner':   fs.readFileSync('./templates/partials/postbanner.hbt').toString(),
 });
+
 Handlebars.registerHelper('baseUrl', function() {
     return baseUrl;
 });
@@ -30,13 +33,24 @@ Handlebars.registerHelper('dateGMT', function( context ) {
     context = context === 'new' ? new Date() : context;
     return context.toGMTString();
 });
-// helpers para marcar a página corrente
+
 Handlebars.registerHelper('currentPage', function( current, page ) {
     return current === page ? 'current' : '';
 });
 
+Handlebars.registerHelper('if_noteq', function(a, b, opts) {
+    if (a != b) {
+        return opts.fn(this);
+    } else {
+        return opts.inverse(this);
+    }
+});
+
 module.exports = function () {
     Metalsmith(__dirname)
+        /*.use(partials({
+            directory: 'src/examples'
+        }))*/
         .use(drafts())
         .use(assets({
             source: __dirname + '/assets',
@@ -49,6 +63,11 @@ module.exports = function () {
                 reverse: true
             }
         }))
+        .use(precompiler({
+            directories: ['examples'],
+            root: 'src'
+        }))
+        .use(metallic())
         .use(markdown())
         .use(permalinks({
             pattern: ':title',
@@ -56,13 +75,12 @@ module.exports = function () {
         }))
         .use(pagination({
             'collections.posts': {
-                perPage: 2,
+                perPage: 5,
                 template: 'index.hbt',
                 first: 'index.html',
                 path: 'pages/:num/index.html'
             }
         }))
-        .use(gist())
         .use(tags({
             handle: 'tags',
             template:'tags.hbt',

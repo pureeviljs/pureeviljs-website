@@ -16,7 +16,7 @@ gulp.task('clean', function () {
     return gulp.src(dir.dest).pipe(clean());
 });
 
-gulp.task('copy', ['bootstrap', 'jquery', 'fontawesome']);
+gulp.task('copy', ['bootstrap', 'jquery', 'fontawesome', 'highlightjs']);
 
 gulp.task('metalsmith', function() {
     return msmith();
@@ -43,6 +43,12 @@ gulp.task('minify-js', function() {
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('assets/js'))
+});
+
+// Copy Bootstrap core files from node_modules to vendor directory
+gulp.task('highlightjs', function() {
+    return gulp.src(['node_modules/highlight.js/styles/atelier-cave.dark.css'])
+        .pipe(gulp.dest('assets/vendor/highlightjs'))
 });
 
 // Copy Bootstrap core files from node_modules to vendor directory
